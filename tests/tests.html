@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <style>
+        * { padding: 0; margin: 0; font-size: 14px; font-weight: normal; font-family: Helvetica, Arial, sans-serif; text-align: left; vertical-align: baseline; line-height: 1.2 }
+        html { background: #DDD; }
+        body { width: 500px; margin: 30px auto; padding: 20px 20px 10px 20px; background: #FFF; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC }
+        h1 { font-weight: bold; margin-bottom: 15px; font-size: 16px }
+        h2 { font-weight: bold; padding: 9px 15px 5px 15px; background: #EEE; border-bottom: 1px solid #DDD; }
+        .description { margin-bottom: 20px; color: #777 }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 15px }
+        th, td { padding: 6px 15px 4px 15px; border-bottom: 1px solid #DDD; line-height: 1.2 }
+        th { width: 60%; }
+        td { font-family: monospace; text-align: right }
+        tr:hover th, tr:hover td { background: #fefcbf }
+        .true { color: green }
+        .false { color: red }
+        code { font-family: monospace; }
+    </style>
+    
+    <!-- javascript libraries -->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/scriptaculous.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/yui/2.8.1/build/yuiloader/yuiloader-min.js"></script>
+    <script src="assets/glow/core.js"></script>
+    <script src="assets/google_closure/base.js"></script>
+    <script src="assets/modernizr.js"></script>
+    
+    <!-- Font related -->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.0.6/webfont.js"></script>
+    <script src="assets/cufon.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/fbz1vwc.js"></script>
+    <link rel="stylesheet" href="http://f.fontdeck.com/s/css/ZVfik0UOum+XcHVsz8n7pf5iaN0/fontdeck.com/87.css" type="text/css">
+    <script src="assets/sifr.js"></script>
+
+    <!-- CMS related -->
+    
+    <meta name="generator" content="Wordpress 3.01-alpha">
+    <meta name="generator" content="http://www.typepad.com/" />
+    <meta name="generator" content="Joomla! 1.5 - Open Source Content Management" />
+    
+    
+    <!-- Other -->
+    
+   <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    
+ 
+    <title>Sniffer Tests</title>
+</head>
+<body>
+            
+    <h1>Sniffer Tests</h1>
+    
+    <p class="description">Below is a list of all the tests that Sniffer currently runs. All tests should either return <code class="true">true</code> or a version number below.</p>
+    
+    <div id="results"></div>
+    
+    <!-- Analytics scripts -->
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+      _gaq.push(['_setDomainName', '.allmarkedup.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+    <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+    <script type="text/javascript">
+    try {
+    reinvigorate.track("3jwtc-a8guvw3862");
+    } catch(err) {}
+    </script>
+    
+    <script type="text/javascript"> 
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://demo.piwik.org/" : "http://demo.piwik.org/"); 
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E")); 
+    </script><script type="text/javascript"> 
+    try { 
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1); 
+    piwikTracker.trackPageView(); 
+    piwikTracker.enableLinkTracking(); 
+    } catch( err ) {} 
+    </script><noscript><p><img src="http://demo.piwik.org/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript> 
+    
+    <script type="text/javascript">
+    var clicky_custom = {};
+    clicky_custom.timer = 200;
+    clicky_custom.timeout = 60;
+    //clicky_custom.no_cookies = 1;
+
+    var clicky = { log: function(){ return; }, goal: function(){ return; }};
+    var clicky_site_id = 10;
+    (function() {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = ( document.location.protocol == 'https:' ? 'https://static.getclicky.com' : 'http://static.getclicky.com' ) + '/js';
+      ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+    })();
+    </script>
+    
+    
+    <!-- -------- SNIFFER -------- -->
+
+    <script src="../sniffer.js"></script>
+    <script>
+
+        var output  = '',
+            results = Sniffer.run();
+        
+        for ( group in results )
+        {
+            output += '<div class="group"><h2>'+group+'</h2><table>';
+            var count = 0;
+            for ( test in results[group] )
+            {
+                var res = results[group][test].toString();
+                var cl =  ( res == 'false' ) ? 'false' : 'true';
+                output += '<tr';
+                if ( count % 2 ) output += ' class="even"';
+                output += '><th>'+test+'</th><td class="'+cl+'">'+res+'</td></tr>';
+                count++;
+            }
+        
+            output += '</table></div>';
+
+        }
+    
+        document.getElementById('results').innerHTML = output;
+    
+    </script>    
+    
+</body> 
+</html>
