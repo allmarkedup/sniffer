@@ -68,13 +68,43 @@ var Sniffer = (function( win, doc, undefined ){
             'MooTools' : [
                 { 
                     type : 'custom',
-                    test : function(){ return win.Prototype ? win.Prototype.Version : false; }
+                    test : function(){ return win.MooTools ? win.MooTools.version : false; }
                 }
             ],
             'Glow' : [
                 { 
                     type : 'custom',
                     test : function(){ return win.glow ? win.glow.VERSION : false; }
+                }
+            ],
+            'Dojo' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return win.dojo ? win.dojo.version.toString() : false; }
+                }
+            ],
+            'ExtJS' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return win.Ext ? win.Ext.version : false; }
+                }
+            ],
+            'YUI' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return win.YAHOO || win.YUI ? true : false; } // need to figure out how to get YUI version
+                }
+            ],
+            'Google Closure' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return !! win.goog; } // need to figure out how to get YUI version
+                }
+            ],
+            'Modernizr' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return win.Modernizr ? win.Modernizr._version : false; } // need to figure out how to get YUI version
                 }
             ]
         }
@@ -95,8 +125,19 @@ var Sniffer = (function( win, doc, undefined ){
                     type : 'text',
                     test : /<link rel=["|']stylesheet["|'] [^>]+wp-content/i
                 }
+            ],
+            'Typepad' : [
+                {
+                    type : 'meta',
+                    test : { name : 'generator', match : /typepad\.com/i }
+                }
+            ],
+            'Joomla' : [
+                {
+                    type : 'meta',
+                    test : { name : 'generator', match : /joomla\!?\s?([\d.]*)/i }
+                }
             ]
-            
         }
         
     };
@@ -110,7 +151,7 @@ var Sniffer = (function( win, doc, undefined ){
             'Google Analytics' : [
                 { 
                     type : 'custom',
-                    test : function(){ return !! win._gat; }
+                    test : function(){ return !! (win._gat || win._gaq); }
                 }
             ],
             'Reinvigorate' : [
@@ -123,6 +164,12 @@ var Sniffer = (function( win, doc, undefined ){
                 { 
                     type : 'custom',
                     test : function(){ return !! win.Piwik; }
+                }
+            ],
+            'Clicky' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return !! win.clicky; }
                 }
             ]
             
@@ -152,6 +199,18 @@ var Sniffer = (function( win, doc, undefined ){
                 { 
                     type : 'text',
                     test : /<link rel=["|']stylesheet["|'] [^>]+f.fontdeck.com/i
+                }
+            ],
+            'Google Webfonts' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return !! win.WebFont }
+                }
+            ],
+            'sIFR' : [
+                { 
+                    type : 'custom',
+                    test : function(){ return win.sIFR ? win.sIFR.VERSION : false }
                 }
             ]
         }
