@@ -7,11 +7,13 @@ var Sniffer = (function( win, doc, undefined ){
     
     var sniff       = {},
         detect      = {},
+        pageinfo     = {},
         test_runner = {},
         results     = {},
         scripts     = doc.getElementsByTagName("script"),
         metas       = doc.getElementsByTagName("meta"),
-        html        = doc.outerHTML || doc.innerHTML;
+        html        = doc.documentElement.outerHTML || doc.documentElement.innerHTML,
+        doctype     = doc.doctype;
     
     // discard meta tags that aren't useful    
     metas = (function(){
@@ -31,7 +33,40 @@ var Sniffer = (function( win, doc, undefined ){
         return temp;
     })();
     
-    /* test definitions for JS libraries */
+    /* page component detection tests */
+    
+    detect.pageinfo = {
+        
+        description : 'Page information',
+        
+        tests : {
+            
+            'Doctype' : [
+                {
+                    type : 'doctype', // source: http://www.w3.org/QA/2002/04/valid-dtd-list.html
+                    test : { 
+                        'HTML5'                    : { name : 'html', publicId : '' },
+                        'HTML 4.01 Strict'         : { name : 'html', publicId : '-//W3C//DTD HTML 4.01//EN' },
+                        'HTML 4.01 Transitional'   : { name : 'html', publicId : '-//W3C//DTD HTML 4.01 Transitional//EN' },
+                        'XHTML 1.0 Strict'         : { name : 'html', publicId : '-//W3C//DTD XHTML 1.0 Strict//EN' },
+                        'XHTML 1.0 Transitional'   : { name : 'html', publicId : '-//W3C//DTD XHTML 1.0 Transitional//EN' },
+                        'XHTML 1.0 Frameset'       : { name : 'html', publicId : '-//W3C//DTD XHTML 1.0 Frameset//EN' },
+                        'XHTML 1.1'                : { name : 'html', publicId : '-//W3C//DTD XHTML 1.1//EN' },
+                        'HTML 2.0'                 : { name : 'html', publicId : '-//IETF//DTD HTML 2.0//EN' },
+                        'HTML 3.0'                 : { name : 'html', publicId : '-//W3C//DTD HTML 3.2 Final//EN' },
+                        'XHTML 1.0 Basic'          : { name : 'html', publicId : '-//W3C//DTD XHTML Basic 1.0//EN' }                      
+                    }
+                }
+            ],
+            'Charset' : [
+                {
+                    type : 'custom',
+                    test : function(){ return doc.characterSet || false; }
+                }
+            ]
+        }
+
+    };
     
     detect.js_libs = {
         
@@ -216,7 +251,8 @@ var Sniffer = (function( win, doc, undefined ){
         }
         
     };
-        
+
+
     /* test runners */
     
     // custom tests just run a function that returns a version number, true or false.
@@ -225,6 +261,38 @@ var Sniffer = (function( win, doc, undefined ){
         return test();
     }
     
+    // one off regexp-based tests
+    test_runner.text = function( test )
+    {
+        return match( html, test );
+    }
+    
+    if ( doctype )
+    {
+        test_runner.doctype = function( test )
+        {   
+            for ( subtest in test )
+            {
+                if ( test.hasOwnProperty(subtest) )
+                {
+                    var t = test[subtest];
+                    
+                    if ( doctype.name.toLowerCase() == t.name && doctype.publicId == t.publicId )
+                    {
+                        return subtest;
+                    }
+                }
+            }
+            return false;
+        }        
+    }
+    else
+    {
+        test_runner.doctype = function(){
+            return 'No Doctype detected';
+        }
+    }
+
     // check the script src... probably pretty unreliable
     if ( scripts.length )
     {
@@ -235,18 +303,12 @@ var Sniffer = (function( win, doc, undefined ){
                 return match( script.src, test );
             }
             return false;
-        }        
+        }
     }
     else
     {
         // no scripts, tests will always return false.
        test_runner.script = function(){ return false; }
-    }
-    
-    // one off regexp-based tests
-    test_runner.text = function( test )
-    {
-        return match( html, test );
     }
     
     // check the meta elements in the head
@@ -318,9 +380,10 @@ var Sniffer = (function( win, doc, undefined ){
                 }
             }
         }
+        
         return results;
     };
 
     return sniff;
     
-})( window, document.documentElement );
+})( window, document );
