@@ -124,14 +124,14 @@
 
         var output  = '',
             results = Sniffer.run();
-        
+        console.dir(results);
         for ( group in results )
         {
-            output += '<div class="group"><h2>'+group+'</h2><table>';
+            output += '<div class="group"><h2>'+results[group].description+'</h2><table>';
             var count = 0;
-            for ( test in results[group] )
+            for ( test in results[group].results )
             {
-                var res = results[group][test].toString();
+                var res = results[group].results[test].toString();
                 var cl =  ( res == 'false' ) ? 'false' : 'true';
                 output += '<tr';
                 if ( count % 2 ) output += ' class="even"';

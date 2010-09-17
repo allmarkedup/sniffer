@@ -39,6 +39,8 @@ var Sniffer = (function( win, doc, undefined ){
         
         description : 'Page information',
         
+        return_type : 'detail',
+        
         tests : {
             
             'Doctype' : [
@@ -61,7 +63,7 @@ var Sniffer = (function( win, doc, undefined ){
             'Charset' : [
                 {
                     type : 'custom',
-                    test : function(){ return doc.characterSet || false; }
+                    test : function(){ return doc.characterSet || 'None detected'; }
                 }
             ]
         }
@@ -71,6 +73,8 @@ var Sniffer = (function( win, doc, undefined ){
     detect.js_libs = {
         
         description : 'JavaScript Libraries',
+        
+        return_type : 'version',
         
         // All individual tests should either return a version number, true or false.
         
@@ -149,6 +153,8 @@ var Sniffer = (function( win, doc, undefined ){
         
         description : 'Content Management System',
         
+        return_type : 'version',
+        
         tests : {
             
             'Wordpress' : [
@@ -181,6 +187,8 @@ var Sniffer = (function( win, doc, undefined ){
         
         description : 'Analytics',
         
+        return_type : 'version',
+        
         tests : {
             
             'Google Analytics' : [
@@ -207,7 +215,6 @@ var Sniffer = (function( win, doc, undefined ){
                     test : function(){ return !! win.clicky; }
                 }
             ]
-            
         }
         
     };
@@ -215,6 +222,8 @@ var Sniffer = (function( win, doc, undefined ){
     detect.fonts = {
         
         description : 'Fonts',
+        
+        return_type : 'version',
         
         tests : {
             
@@ -289,7 +298,7 @@ var Sniffer = (function( win, doc, undefined ){
     else
     {
         test_runner.doctype = function(){
-            return 'No Doctype detected';
+            return 'None detected';
         }
     }
 
@@ -373,9 +382,13 @@ var Sniffer = (function( win, doc, undefined ){
                 {
                     if ( detect[group].tests.hasOwnProperty(test) )
                     {
-                        var desc = detect[group].description;
-                        results[desc] = results[desc] || {};
-                        results[desc][test] = run( detect[group].tests[test] );
+                        results[group] = results[group] || {};
+                        results[group].results = results[group].results || {};
+                        
+                        results[group].description = detect[group].description;
+                        results[group].return_type = detect[group].return_type;
+                        
+                        results[group]['results'][test] = run( detect[group].tests[test] );
                     }
                 }
             }
