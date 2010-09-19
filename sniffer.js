@@ -186,6 +186,12 @@ var Sniffer = (function( win, doc, undefined ){
 					type : 'meta',
 					test : { name : 'generator', match : /blogger/i }
 				}
+			],
+			'MovableType' : [
+				{
+					type : 'meta',
+					test : { name : 'generator', match : /Movable Type Pro ([\d.]*)/i }
+				}
 			]
         }
 
