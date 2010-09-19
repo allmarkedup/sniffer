@@ -117,6 +117,22 @@
     })();
     </script>
 
+	<script type="text/javascript" src="http://www.openwebanalytics.com/wp-content/plugins/owa/modules/base/js/owa.tracker-combined-min.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+	//OWA.setSetting('debug', true);
+	// Set base URL
+	OWA.setSetting('baseUrl', 'http://www.openwebanalytics.com/wp-content/plugins/owa/');
+	OWA.setApiEndpoint('http://www.openwebanalytics.com/index.php?owa_specialAction');
+	// Create a tracker
+	OWATracker = new OWA.tracker();
+	OWATracker.setEndpoint('http://www.openwebanalytics.com/wp-content/plugins/owa/log.php');
+	OWATracker.setSiteId('b07455aa2c46698dbb2d053f96447dfb');
+	OWATracker.trackClicks();
+	OWATracker.trackDomStream();
+	//]]>
+	</script>
+
 
     <!-- -------- SNIFFER -------- -->
 

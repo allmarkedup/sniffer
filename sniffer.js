@@ -1,3 +1,5 @@
+"use strict";
+
 /*
  * Sniffer - sniffs web pages to extract information such as JS libraries, CMS, analytics packages, etc.
  * Author: Mark Perkins, mark@allmarkedup.com
@@ -220,7 +222,13 @@ var Sniffer = (function( win, doc, undefined ){
                     type : 'custom',
                     test : function(){ return !! win.clicky; }
                 }
-            ]
+            ],
+			'Open Web Analytics' : [
+				{
+					type : 'custom',
+					test : function() { return !! win.OWA; }
+				}
+			]
         }
 
     };
