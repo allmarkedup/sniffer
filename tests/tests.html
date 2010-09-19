@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    
+
     <style>
         * { padding: 0; margin: 0; font-size: 14px; font-weight: normal; font-family: Helvetica, Arial, sans-serif; text-align: left; vertical-align: baseline; line-height: 1.2 }
         html { background: #DDD; }
@@ -19,9 +19,9 @@
         .false { color: red }
         code { font-family: monospace; }
     </style>
-    
+
     <!-- javascript libraries -->
-    
+
     <script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
@@ -33,9 +33,9 @@
     <script src="assets/glow/core.js"></script>
     <script src="assets/google_closure/base.js"></script>
     <script src="assets/modernizr.js"></script>
-    
+
     <!-- Font related -->
-    
+
     <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.0.6/webfont.js"></script>
     <script src="assets/cufon.js"></script>
     <script type="text/javascript" src="http://use.typekit.com/fbz1vwc.js"></script>
@@ -43,29 +43,30 @@
     <script src="assets/sifr.js"></script>
 
     <!-- CMS related -->
-    
+
     <meta name="generator" content="Wordpress 3.01-alpha">
     <meta name="generator" content="http://www.typepad.com/" />
     <meta name="generator" content="Joomla! 1.5 - Open Source Content Management" />
-    
-    
+	<meta name="generator" content="Blogger" />
+
+
     <!-- Other -->
-    
+
    <script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-    
- 
+
+
     <title>Sniffer Tests</title>
 </head>
 <body>
-            
+
     <h1>Sniffer Tests</h1>
-    
+
     <p class="description">Below is a list of all the tests that Sniffer currently runs. All tests should either return <code class="true">true</code> or a string result (numbers generally represent version numbers) below.</p>
-    
+
     <div id="results"></div>
-    
+
     <!-- Analytics scripts -->
-    
+
     <script type="text/javascript">
 
       var _gaq = _gaq || [];
@@ -80,25 +81,25 @@
       })();
 
     </script>
-    
+
     <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
     <script type="text/javascript">
     try {
     reinvigorate.track("3jwtc-a8guvw3862");
     } catch(err) {}
     </script>
-    
-    <script type="text/javascript"> 
-    var pkBaseURL = (("https:" == document.location.protocol) ? "https://demo.piwik.org/" : "http://demo.piwik.org/"); 
-    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E")); 
-    </script><script type="text/javascript"> 
-    try { 
-    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1); 
-    piwikTracker.trackPageView(); 
-    piwikTracker.enableLinkTracking(); 
-    } catch( err ) {} 
-    </script><noscript><p><img src="http://demo.piwik.org/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript> 
-    
+
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://demo.piwik.org/" : "http://demo.piwik.org/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+    </script><noscript><p><img src="http://demo.piwik.org/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+
     <script type="text/javascript">
     var clicky_custom = {};
     clicky_custom.timer = 200;
@@ -115,8 +116,8 @@
       ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
     })();
     </script>
-    
-    
+
+
     <!-- -------- SNIFFER -------- -->
 
     <script src="../sniffer.js"></script>
@@ -138,14 +139,14 @@
                 output += '><th>'+test+'</th><td class="'+cl+'">'+res+'</td></tr>';
                 count++;
             }
-        
+
             output += '</table></div>';
 
         }
-    
+
         document.getElementById('results').innerHTML = output;
-    
-    </script>    
-    
-</body> 
+
+    </script>
+
+</body>
 </html>
