@@ -131,7 +131,7 @@ var Sniffer = (function( win, doc, undefined ){
             'YUI' : [
                 {
                     type : 'custom',
-                    test : function(){ return win.YAHOO || win.YUI ? true : false; } // need to figure out how to get YUI version
+					test : function(){ return win.YAHOO ? win.YAHOO.VERSION : false; }
                 }
             ],
             'Google Closure' : [
