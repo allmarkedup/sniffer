@@ -83,6 +83,12 @@ var Sniffer = (function( win, doc, undefined ){
                         }
                     }
                 }
+            ],
+            'geoLocation' : [
+                {
+                    type : 'custom',
+                    test : function() { return navigator.geolocation ? 'Supported' : 'Not supported'; } // This could be further developed to return lat/long
+                }
             ]
         }
 
