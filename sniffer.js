@@ -131,7 +131,7 @@ var Sniffer = (function( win, doc, undefined ){
             'YUI' : [
                 {
                     type : 'custom',
-					test : function(){ return win.YAHOO ? win.YAHOO.VERSION : false; }
+                    test : function(){ return win.YAHOO ? win.YAHOO.VERSION : false; }
                 }
             ],
             'Google Closure' : [
@@ -185,18 +185,18 @@ var Sniffer = (function( win, doc, undefined ){
                     test : { name : 'generator', match : /joomla\!?\s?([\d.]*)/i }
                 }
             ],
-			'Blogger' : [
-				{
-					type : 'meta',
-					test : { name : 'generator', match : /blogger/i }
-				}
-			],
-			'MovableType' : [
-				{
-					type : 'meta',
-					test : { name : 'generator', match : /Movable Type Pro ([\d.]*)/i }
-				}
-			]
+            'Blogger' : [
+                {
+                    type : 'meta',
+                    test : { name : 'generator', match : /blogger/i }
+                }
+            ],
+            'MovableType' : [
+                {
+                    type : 'meta',
+                    test : { name : 'generator', match : /Movable Type Pro ([\d.]*)/i }
+                }
+            ]
         }
 
     };
@@ -233,12 +233,12 @@ var Sniffer = (function( win, doc, undefined ){
                     test : function(){ return !! win.clicky; }
                 }
             ],
-			'Open Web Analytics' : [
-				{
-					type : 'custom',
-					test : function() { return !! win.OWA; }
-				}
-			]
+            'Open Web Analytics' : [
+                {
+                    type : 'custom',
+                    test : function() { return !! win.OWA; }
+                }
+            ]
         }
 
     };
