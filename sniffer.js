@@ -243,6 +243,12 @@ var Sniffer = (function( win, doc, undefined ){
                     type : 'custom',
                     test : function() { return !! win.OWA; }
                 }
+            ],
+            'Yahoo! Web Analytics' : [
+                {
+                    type : 'custom',
+                    test : function() { return !! win.yzq_p; }
+                }
             ]
         }
 
