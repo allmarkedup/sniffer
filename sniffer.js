@@ -56,7 +56,12 @@ var Sniffer = (function( win, doc, undefined ){
                         'XHTML 1.1'                : { name : 'html', publicId : '-//W3C//DTD XHTML 1.1//EN' },
                         'HTML 2.0'                 : { name : 'html', publicId : '-//IETF//DTD HTML 2.0//EN' },
                         'HTML 3.0'                 : { name : 'html', publicId : '-//W3C//DTD HTML 3.2 Final//EN' },
-                        'XHTML 1.0 Basic'          : { name : 'html', publicId : '-//W3C//DTD XHTML Basic 1.0//EN' }
+                        'XHTML 1.0 Basic'          : { name : 'html', publicId : '-//W3C//DTD XHTML Basic 1.0//EN' },
+                        'MathML 2.0'               : { name : 'html', publicId : '-//W3C//DTD MathML 2.0//EN' },
+                        'SVG 1.1 Full'             : { name : 'html', publicId : '-//W3C//DTD SVG 1.1//EN' },
+                        'SVG 1.0'                  : { name : 'html', publicId : '-//W3C//DTD SVG 1.0//EN' },
+                        'SVG 1.1 Basic'            : { name : 'html', publicId : '-//W3C//DTD SVG 1.1 Basic//EN' },
+                        'SVG 1.1 Tiny'             : { name : 'html', publicId : '-//W3C//DTD SVG 1.1 Tiny//EN' }
                     }
                 }
             ],
