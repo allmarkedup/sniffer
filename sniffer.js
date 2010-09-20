@@ -70,6 +70,19 @@ var Sniffer = (function( win, doc, undefined ){
                     type : 'custom',
                     test : function(){ return doc.characterSet || 'None detected'; }
                 }
+            ],
+            'Orientation' : [
+                {
+                    type : 'custom',
+                    test : function(){
+                        // This is really messy but proves the concept
+                        if( typeof orientation != "undefined" ) { // If we're on a mobile device
+                            return orientation == 90 || orientation == -90 ? "Landscape" : "Portrait"
+                        } else {
+                            return "None detected"; // You'll probably want to change this
+                        }
+                    }
+                }
             ]
         }
 
