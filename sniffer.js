@@ -1,5 +1,3 @@
-"use strict";
-
 /*
  * Sniffer - sniffs web pages to extract information such as JS libraries, CMS, analytics packages, etc.
  * Author: Mark Perkins, mark@allmarkedup.com
@@ -146,6 +144,12 @@ var Sniffer = (function( win, doc, undefined ){
                 {
                     type : 'custom',
                     test : function(){ return win.Modernizr ? win.Modernizr._version : false; } // need to figure out how to get YUI version
+                }
+            ],
+            'MochiKit' : [
+                {
+                    type : 'custom',
+                    test : function(){ return win.MochiKit ? win.MochiKit.MochiKit.VERSION : false; }
                 }
             ]
         }
