@@ -18,20 +18,39 @@
         
         <h1><span>Sniffer</span></h1>
         
-        <p>A JS library for sniffing out information about pages, such as which JS libraries are used, what CMS the site runs on, what analytics packages it uses, and more.</p>
+        <p>A JS library for sniffing out information about pages, such as which JS libraries are used, what CMS the site runs on, what analytics packages it uses, and more. It is intended to be used in bookmarklets or injected JS widgets that need to gather information about the host page and it's component parts.</p>
         
-        <p>Where it can, it will return a string with more information (such as a version number), otherwise it will return <code>true</code> or <code>false</code> for each test.</p>
+        <p>Where it can, Sniffer will return a string with more information (such as a version number) for each test; otherwise it will return boolean <code>true</code> or <code>false</code>.</p>
+        
+        <h2>Usage</h2>
+        
+        <p>Including (or for a more common use-case scenario, <em>injecting</em>) the sniffer.js file into a page will give you access to a single global variable, <code>Sniffer</code>.</p>
+        
+        <h3><code>Sniffer.check</code></h3>
+        
+        <p>Run an individual check by calling <code>Sniffer.check('test_item')</code> where 'test_item' is a string representing the thing to test for - 'jQuery' or 'Wordpress', for example. See below for a list of currently implemented tests.</p>
+        
+        <p>The result will be <code>undefined</code> if Sniffer does not have a check corresponding to that name, boolean <code>false</code> if the test was negative, boolean <code>true</code> if the item was found but no other information could be extracted, or a text string of further information (normally the version number) if some can be extracted.</p>
+        
+        <h3><code>Sniffer.run</code></h3>
+        
+        <p><code>Sniffer.run()</code> will run all the tests Sniffer has and return an JSON object of results, grouped by test type (i.e. CMS, JavaScript Library, etc).</p>
+        
+        <p>It's probably easiest to play around with the results of this in Firebug or Web Inspector to understand the exact structure of the JSON object returned. It's pretty straightforward ;-)</p>
+        
+        <h3><code>Sniffer.results</code></h3>
+        
+        <p><code>Sniffer.results()</code> will return the same results object as <code>Sniffer.run()</code>, populated only with information about checks that have already been run.</p>
         
         <div id="tests">
             
-            <h2>Sniffer can currently check for the following:</h2>
+            <h2>Currently implemented tests</h2>
             
             <ul id="which_tests">
                 
             </ul>
             
         </div>
-        
         
         <div id="coda">
         
