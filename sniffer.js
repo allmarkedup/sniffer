@@ -1,5 +1,3 @@
-"use strict";
-
 /*
  * Sniffer - sniffs web pages to extract information such as JS libraries, CMS, analytics packages, etc.
  * Author: Mark Perkins, mark@allmarkedup.com
