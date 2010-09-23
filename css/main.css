@@ -1,0 +1,87 @@
+/* Sniffer overview page
+============================================== */
+
+body {
+    background: #DDD;
+    font-size: 14px;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+#forkme {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content {
+    width: 500px;
+    margin: 30px auto;
+    padding: 20px 20px 1px 20px;
+    background: #FFF;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+
+h1 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+h1 span {
+    padding: 3px;
+    background: #FFFFCF;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-weight: bold;
+    padding: 9px 15px 5px 15px;
+    background: #EEE;
+    border-bottom: 1px solid #DDD;
+}
+
+#tests {
+    display: none;
+    padding: 0 0 20px 0;
+}
+
+#tests ul {
+    list-style: none;
+}
+
+#tests li {
+    overflow: hidden;
+}
+
+#tests li li {
+    border-bottom: 1px solid #DDD;
+    padding: 6px 10px;
+    width: 230px;
+    float: left;
+    color: #125F23;
+}
+
+#tests li li:last-child {
+    border-bottom: 0;
+}
+
+.hasJS #tests {
+    display: block;
+}
+
+#coda {
+    font-size: 12px;
+    color: #999;
+}
+
+#coda a {
+    color: #999;
+}
