@@ -147,7 +147,13 @@ var Sniffer = (function( win, doc, undefined ){
                     type : 'custom',
                     test : function(){ return win.Modernizr ? win.Modernizr._version : false; } // need to figure out how to get YUI version
                 }
-            ]
+            ],
+			'Raphael' : [
+				{
+					type : 'custom',
+					test : function(){ return win.Raphael ? win.Raphael.version : false; }
+				}
+			]
         }
     };
 
@@ -191,6 +197,12 @@ var Sniffer = (function( win, doc, undefined ){
 				{
 					type : 'meta',
 					test : { name : 'generator', match : /Movable Type Pro ([\d.]*)/i }
+				}
+			],
+			'Drupal' : [
+				{
+					type : 'custom',
+					test : function() { return win.Drupal ? true : false; } // no version in js obj
 				}
 			]
         }
