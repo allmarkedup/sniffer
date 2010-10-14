@@ -204,6 +204,16 @@ var Sniffer = (function( win, doc, undefined ){
 					type : 'custom',
 					test : function() { return win.Drupal ? true : false; } // no version in js obj
 				}
+			],
+			'Cisco Eos' : [
+				{
+					type : 'custom',
+					test : function() { return win.eos ? true : false; } // no version in js obj
+				},
+				{
+                    type : 'text',
+                    test : /<link rel=["|']stylesheet["|'] [^>]+ciscoeos.com/i
+                }
 			]
         }
 
